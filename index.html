@@ -137,69 +137,35 @@
           </video>
         </div>
 
-        <!-- Enterprise Frosted Glassdor Booking Form -->
+        <!-- Enterprise Clean Booking Engine -->
         <div class="hero-booking-card" id="bookingCard">
-          <!-- Header bar with live telemetry tag -->
-          <div class="booking-card-header">
-            <div class="card-header-title">
-              <span class="pulse-indicator-orange"></span>
-              <strong>Instant Freight &amp; Relocation Calculator</strong>
-            </div>
-            <div class="card-header-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-              <span>Live Spot Rates • 600+ Cities Pan-India</span>
-            </div>
-          </div>
-
-          <!-- Service Tabs -->
+          <!-- Service Tabs (Clean Segmented Bar) -->
           <div class="booking-tabs" role="tablist">
-            <button class="booking-tab active" data-service="ftl" id="tabFtl">
-              <div class="tab-icon-box">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 17h4V5H2v12h3m9 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0m-9 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/><path d="M14 9h4l3 3v5h-3"/></svg>
-              </div>
-              <div class="tab-label-wrap">
-                <span class="tab-main-text">Full Truck (FTL)</span>
-                <span class="tab-sub-text">Dedicated Direct</span>
-              </div>
-              <span class="tab-badge-pill popular">POPULAR</span>
+            <button type="button" class="booking-tab active" data-service="ftl" id="tabFtl">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 17h4V5H2v12h3m9 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0m-9 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/><path d="M14 9h4l3 3v5h-3"/></svg>
+              <span>Full Truck (FTL)</span>
             </button>
 
-            <button class="booking-tab" data-service="ptl" id="tabPtl">
-              <div class="tab-icon-box">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m7.5 4.27 9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
-              </div>
-              <div class="tab-label-wrap">
-                <span class="tab-main-text">Part Load (PTL)</span>
-                <span class="tab-sub-text">Shared Freight</span>
-              </div>
-              <span class="tab-badge-pill save">SAVE 30%</span>
+            <button type="button" class="booking-tab" data-service="ptl" id="tabPtl">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m7.5 4.27 9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+              <span>Part Load (PTL)</span>
             </button>
 
-            <button class="booking-tab" data-service="movers" id="tabMovers">
-              <div class="tab-icon-box">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              </div>
-              <div class="tab-label-wrap">
-                <span class="tab-main-text">Packers &amp; Movers</span>
-                <span class="tab-sub-text">Home &amp; Office</span>
-              </div>
+            <button type="button" class="booking-tab" data-service="movers" id="tabMovers">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>Packers &amp; Movers</span>
             </button>
           </div>
 
-          <!-- Booking Inputs -->
+          <!-- Clean Booking Inputs -->
           <form class="booking-form" id="freightBookingForm">
-            <!-- Route Module with Origin, Interactive Swap Button, and Destination -->
+            <!-- Route Row -->
             <div class="route-input-container">
-              <div class="glass-input-group route-col">
-                <label class="glass-input-label" for="pickupCity">
-                  <span class="label-dot origin-dot"></span>
-                  <span>PICKUP LOCATION (ORIGIN)</span>
-                </label>
-                <div class="glass-input-wrapper">
-                  <div class="input-icon-pill origin">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                  </div>
-                  <select class="glass-select route-select" id="pickupCity">
+              <div class="form-group route-col">
+                <label class="form-label" for="pickupCity">Pickup City</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon-svg origin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <select class="form-select" id="pickupCity">
                     <option value="delhi">Delhi NCR (All Hubs)</option>
                     <option value="mumbai">Mumbai, Maharashtra</option>
                     <option value="bengaluru">Bengaluru, Karnataka</option>
@@ -217,20 +183,15 @@
               </div>
 
               <!-- Interactive Swap Route Button -->
-              <button type="button" class="route-swap-btn" id="swapCitiesBtn" title="Swap Origin and Destination" aria-label="Swap Route">
+              <button type="button" class="route-swap-btn" id="swapCitiesBtn" title="Swap Cities" aria-label="Swap Route">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg>
               </button>
 
-              <div class="glass-input-group route-col">
-                <label class="glass-input-label" for="dropCity">
-                  <span class="label-dot destination-dot"></span>
-                  <span>DELIVERY DESTINATION (DROP)</span>
-                </label>
-                <div class="glass-input-wrapper">
-                  <div class="input-icon-pill destination">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="m12 8 4 4-4 4M8 12h8"/></svg>
-                  </div>
-                  <select class="glass-select route-select" id="dropCity">
+              <div class="form-group route-col">
+                <label class="form-label" for="dropCity">Drop City</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon-svg destination" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="12" cy="12" r="10"/><path d="m12 8 4 4-4 4M8 12h8"/></svg>
+                  <select class="form-select" id="dropCity">
                     <option value="jaipur" selected>Jaipur, Rajasthan</option>
                     <option value="mumbai">Mumbai, Maharashtra</option>
                     <option value="delhi">Delhi NCR (All Hubs)</option>
@@ -246,87 +207,63 @@
               </div>
             </div>
 
-            <!-- Vehicle & Goods Type -->
+            <!-- Vehicle & Goods Row -->
             <div class="form-row-2">
-              <div class="glass-input-group" id="vehicleGroup">
-                <label class="glass-input-label" id="vehicleLabel" for="vehicleType">
-                  <span>VEHICLE CAPACITY &amp; BODY</span>
-                </label>
-                <div class="glass-input-wrapper">
-                  <div class="input-icon-pill vehicle">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="16" height="10" x="2" y="5" rx="2"/><path d="M18 10h3l2 3v2h-5"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-                  </div>
-                  <select class="glass-select" id="vehicleType">
-                    <option value="tata-ace">Tata Ace (1.5 Ton Mini / Open)</option>
-                    <option value="pickup-14ft" selected>14ft Eicher (4 Ton Medium Body)</option>
-                    <option value="truck-19ft">19ft Heavy Haul (9 Ton Container)</option>
-                    <option value="container-24ft">24ft HQ Container (14 Ton Multi-Axle)</option>
-                    <option value="trailer-32ft">32ft High-Deck Trailer (25 Ton Long Haul)</option>
+              <div class="form-group" id="vehicleGroup">
+                <label class="form-label" id="vehicleLabel" for="vehicleType">Vehicle Type</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="16" height="10" x="2" y="5" rx="2"/><path d="M18 10h3l2 3v2h-5"/><circle cx="6" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                  <select class="form-select" id="vehicleType">
+                    <option value="tata-ace">Tata Ace (1.5 Ton Mini)</option>
+                    <option value="pickup-14ft" selected>14ft Eicher (4 Ton)</option>
+                    <option value="truck-19ft">19ft Heavy Haul (9 Ton)</option>
+                    <option value="container-24ft">24ft HQ Container (14 Ton)</option>
+                    <option value="trailer-32ft">32ft Multi-Axle (25 Ton)</option>
                   </select>
                 </div>
               </div>
 
-              <div class="glass-input-group">
-                <label class="glass-input-label" for="goodsType">
-                  <span>COMMODITY / CARGO CATEGORY</span>
-                </label>
-                <div class="glass-input-wrapper">
-                  <div class="input-icon-pill goods">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
-                  </div>
-                  <select class="glass-select" id="goodsType">
-                    <option value="general" selected>General Cargo / FMCG Products</option>
-                    <option value="industrial">Industrial Machinery &amp; Spares</option>
-                    <option value="textiles">Textiles &amp; Garments (Export)</option>
-                    <option value="electronics">Consumer Electronics (Fragile)</option>
-                    <option value="pharma">Pharma, Medical &amp; Chemicals</option>
-                    <option value="fragile">Ceramics, Tiles &amp; Glassware</option>
+              <div class="form-group">
+                <label class="form-label" for="goodsType">Goods Type</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+                  <select class="form-select" id="goodsType">
+                    <option value="general" selected>General Cargo / FMCG</option>
+                    <option value="industrial">Industrial Machinery</option>
+                    <option value="textiles">Textiles &amp; Garments</option>
+                    <option value="electronics">Electronics (Fragile)</option>
+                    <option value="pharma">Pharma &amp; Chemicals</option>
+                    <option value="fragile">Ceramics &amp; Glassware</option>
                   </select>
                 </div>
               </div>
             </div>
 
-            <!-- Date & Phone Number -->
+            <!-- Date & Mobile Row -->
             <div class="form-row-2">
-              <div class="glass-input-group">
-                <label class="glass-input-label" for="pickupDate">
-                  <span>DISPATCH DATE</span>
-                </label>
-                <div class="glass-input-wrapper">
-                  <div class="input-icon-pill date">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                  </div>
-                  <input type="date" class="glass-input" id="pickupDate" value="2026-10-10">
+              <div class="form-group">
+                <label class="form-label" for="pickupDate">Pickup Date</label>
+                <div class="input-wrapper">
+                  <svg class="input-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                  <input type="date" class="form-input" id="pickupDate" value="2026-10-10">
                 </div>
               </div>
 
-              <div class="glass-input-group">
-                <label class="glass-input-label" for="contactPhone">
-                  <span>CUSTOMER PHONE (FOR INSTANT QUOTE)</span>
-                </label>
-                <div class="glass-input-wrapper phone-wrapper">
-                  <div class="phone-country-tag">
-                    <span class="flag-icon">🇮🇳</span>
-                    <span>+91</span>
-                  </div>
-                  <input type="tel" class="glass-input phone-input" id="contactPhone" placeholder="Enter 10-digit mobile number" maxlength="10">
+              <div class="form-group">
+                <label class="form-label" for="contactPhone">Mobile Number</label>
+                <div class="input-wrapper phone-wrapper">
+                  <span class="phone-prefix">+91</span>
+                  <input type="tel" class="form-input phone-input" id="contactPhone" placeholder="Enter 10-digit number" maxlength="10">
                 </div>
               </div>
             </div>
 
-            <!-- Comprehensive Transit Insurance Card -->
-            <div class="insurance-check-card">
-              <div class="insurance-info">
-                <div class="insurance-shield-icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                </div>
-                <div class="insurance-text">
-                  <div class="insurance-heading-line">
-                    <h5>₹50 Lakhs Goods Transit Insurance Included</h5>
-                    <span class="insurance-badge-active">ACTIVE</span>
-                  </div>
-                  <p>All-risk cargo protection underwritten by ICICI Lombard &amp; Digit • Zero deductible</p>
-                </div>
+            <!-- Sleek 1-Line Transit Insurance Option -->
+            <div class="insurance-clean-row">
+              <div class="insurance-label-wrap">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                <span class="insurance-title">Include Transit Insurance</span>
+                <span class="insurance-badge-chip">₹50L COVER</span>
               </div>
               <label class="toggle-switch" aria-label="Toggle Goods Transit Insurance">
                 <input type="checkbox" id="insuranceToggle" checked>
@@ -334,31 +271,11 @@
               </label>
             </div>
 
-            <!-- Submit / Calculate Button -->
-            <button type="button" class="btn btn-primary btn-lg booking-submit-btn" id="calcRateBtn">
-              <div class="btn-glow-sheen"></div>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m21 21-4.3-4.3"/><circle cx="11" cy="11" r="8"/></svg>
-              <span>Calculate Rate &amp; Instant Vehicle Availability</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="arrow-forward"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <!-- Clean Submit CTA Button -->
+            <button type="button" class="clean-submit-btn" id="calcRateBtn">
+              <span>Check Rates &amp; Availability</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
-
-            <!-- Trust Micro-Strip -->
-            <div class="booking-trust-strip">
-              <div class="trust-strip-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="color: var(--primary-orange);"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                <span>10-Sec Rate Lock</span>
-              </div>
-              <span class="trust-dot">•</span>
-              <div class="trust-strip-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="color: #166534;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                <span>Zero Hidden Fuel / Toll Surprises</span>
-              </div>
-              <span class="trust-dot">•</span>
-              <div class="trust-strip-item">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="color: #2563eb;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
-                <span>15-Min Driver Assigned</span>
-              </div>
-            </div>
           </form>
 
           <!-- REAL-TIME CALCULATED QUOTE CARD (WHITE & ORANGE HUD) -->
