@@ -672,7 +672,7 @@ h1, h2, h3, h4, .font-heading {
    ========================================================================== */
 
 .hero-section {
-  padding: 3.5rem 0 3rem;
+  padding: 3rem 0 3rem;
   position: relative;
   z-index: 2;
 }
@@ -680,8 +680,16 @@ h1, h2, h3, h4, .font-heading {
 .hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 3rem;
-  align-items: center;
+  grid-template-areas:
+    "header  visual"
+    "booking visual"
+    "chips   visual";
+  gap: 1.5rem 3rem;
+  align-items: start;
+}
+
+.hero-header-block {
+  grid-area: header;
 }
 
 .hero-badge-wrap {
@@ -706,6 +714,7 @@ h1, h2, h3, h4, .font-heading {
 
 /* WHITE GLASSDOR ENTERPRISE BOOKING CARD */
 .hero-booking-card {
+  grid-area: booking;
   padding: 1.85rem;
   background: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.95);
@@ -1338,11 +1347,12 @@ input:checked + .slider-round:before {
 
 /* Quick Corridor Chips */
 .corridor-chips {
+  grid-area: chips;
   display: flex;
   align-items: center;
   gap: 0.6rem;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .chip-label {
@@ -1373,22 +1383,62 @@ input:checked + .slider-round:before {
 
 /* HERO RIGHT-SIDE VISUAL (DAYLIGHT TRUCK VIDEO + WHITE GLASSDOR HUD) */
 .hero-visual-card {
-  position: relative;
+  grid-area: visual;
+  position: sticky;
+  top: 90px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 25px 50px -10px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 25px 50px -10px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(255, 85, 0, 0.12);
   border: 1.5px solid var(--glass-border);
   background: #0f172a;
-  min-height: 490px;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-truck-video, .hero-truck-img {
   width: 100%;
   height: 100%;
-  min-height: 490px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
+}
+
+.video-live-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.26rem 0.65rem;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.live-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: liveDotBlink 1.5s infinite;
+}
+
+@keyframes liveDotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
 }
 
 .video-control-btn {
@@ -2505,7 +2555,10 @@ input:checked + .slider-round:before {
   to { transform: translateX(0); opacity: 1; }
 }
 
-/* RESPONSIVE */
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM (MOBILE, TABLET, DESKTOP)
+   ========================================================================== */
+
 @media (max-width: 1200px) {
   .ticker-offer {
     display: none;
@@ -2516,12 +2569,40 @@ input:checked + .slider-round:before {
 }
 
 @media (max-width: 1024px) {
+  /* HERO FLEX-COLUMN LAYOUT: TITLE -> VIDEO -> BOOKING FORM -> CHIPS */
   .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .hero-header-block {
+    order: 1;
+    width: 100%;
+  }
+  .hero-visual-card {
+    order: 2;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: auto;
+    margin: 0.25rem 0 0.5rem;
+  }
+  .hero-truck-video {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: auto;
+  }
+  .hero-booking-card {
+    order: 3;
+    width: 100%;
+  }
+  .corridor-chips {
+    order: 4;
+    width: 100%;
   }
   .hero-title {
-    font-size: 2.75rem;
+    font-size: 2.65rem;
   }
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2556,8 +2637,8 @@ input:checked + .slider-round:before {
 @media (max-width: 900px) {
   .top-bar-content {
     flex-direction: column;
-    gap: 0.4rem;
-    padding: 0.2rem 0;
+    gap: 0.45rem;
+    padding: 0.35rem 0;
   }
   .ticker-wrap {
     justify-content: center;
@@ -2566,32 +2647,254 @@ input:checked + .slider-round:before {
 }
 
 @media (max-width: 768px) {
+  /* MASTER MOBILE NAVBAR DRAWER */
   .nav-links {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 2px solid rgba(255, 85, 0, 0.2);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.35rem;
+    z-index: 999;
+  }
+  .nav-links.active {
+    display: flex;
+    animation: mobileSlideDown 0.25s ease forwards;
+  }
+  @keyframes mobileSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .nav-link {
+    font-size: 0.975rem;
+    font-weight: 700;
+    color: #0f172a;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  }
+  .nav-link:hover, .nav-link.active {
+    color: var(--primary-orange);
+    padding-left: 0.5rem;
   }
   .mobile-toggle {
-    display: block;
-  }
-  .hero-title {
-    font-size: 2.15rem;
-  }
-  .logo-badge-verified {
-    display: none;
-  }
-  .logo-part-city, .logo-part-cargo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
     font-size: 1.25rem;
   }
-  .logo-emblem-badge {
-    width: 40px;
-    height: 40px;
+
+  /* TOP CONTACTS ON MOBILE */
+  .top-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
   }
-  .emblem-rotate-img {
+  .top-contact-pill {
+    padding: 0.24rem 0.65rem;
+    font-size: 0.72rem;
+  }
+
+  /* HERO ON MOBILE */
+  .hero-section {
+    padding: 1.5rem 0 2rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 0.65rem;
+  }
+  .hero-subtitle {
+    font-size: 0.925rem;
+    margin-bottom: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* HERO VIDEO CARD ON MOBILE (16:9 PROMINENT PRESENTATION) */
+  .hero-visual-card {
+    order: 2;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: auto;
+    border-radius: 16px;
+    margin: 0.25rem 0 0.85rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  }
+  .hero-truck-video {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: auto;
+    object-fit: cover;
+  }
+  .video-live-badge {
+    top: 10px;
+    left: 10px;
+    font-size: 0.625rem;
+    padding: 0.22rem 0.55rem;
+  }
+
+  /* HERO BOOKING CARD ON MOBILE */
+  .hero-booking-card {
+    order: 3;
+    padding: 1.15rem 0.95rem;
+    border-radius: 18px;
+  }
+  .booking-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .card-header-title {
+    font-size: 0.85rem;
+  }
+  .card-header-badge {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  /* TABS ON MOBILE */
+  .booking-tabs {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+    padding: 0.25rem;
+    margin-bottom: 1.15rem;
+  }
+  .booking-tab {
+    padding: 0.55rem 0.25rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+  }
+  .tab-icon-box {
     width: 28px;
     height: 28px;
+    border-radius: 8px;
   }
+  .tab-main-text {
+    font-size: 0.725rem;
+    line-height: 1.15;
+  }
+  .tab-sub-text, .tab-badge-pill {
+    display: none;
+  }
+
+  /* ROUTE INPUTS ON MOBILE */
+  .route-input-container {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+  .route-swap-btn {
+    align-self: center;
+    margin: -4px auto;
+    transform: rotate(90deg);
+    width: 38px;
+    height: 38px;
+  }
+  .route-swap-btn:hover {
+    transform: scale(1.08) rotate(270deg);
+  }
+
   .form-row-2 {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
+
+  /* IOS SAFARI NO-ZOOM FONT SIZE */
+  .glass-input, .glass-select {
+    font-size: 16px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  /* INSURANCE ON MOBILE */
+  .insurance-check-card {
+    padding: 0.75rem 0.85rem;
+  }
+  .insurance-shield-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .insurance-heading-line h5 {
+    font-size: 0.8rem;
+  }
+  .insurance-text p {
+    font-size: 0.68rem;
+  }
+
+  /* CTA BUTTON & TRUST STRIP */
+  .booking-submit-btn {
+    font-size: 0.95rem;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+  }
+  .booking-trust-strip {
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: center;
+    font-size: 0.72rem;
+  }
+  .trust-dot {
+    display: none;
+  }
+
+  /* QUOTE CARD ON MOBILE */
+  .live-quote-card {
+    padding: 1rem 0.85rem;
+  }
+  .quote-metrics-row {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.35rem;
+    padding: 0.65rem 0;
+  }
+  .metric-val {
+    font-size: 0.95rem;
+  }
+  .fare-breakdown-row {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+    text-align: center;
+  }
+  .fare-total-tag {
+    font-size: 1.5rem;
+  }
+  #instantDispatchBtn {
+    width: 100%;
+  }
+
+  /* RADAR CONSOLE ON MOBILE */
+  .radar-console-card {
+    padding: 1.15rem 0.85rem;
+    border-radius: 18px;
+  }
+  .radar-search-box {
+    flex-direction: column;
+  }
+  .radar-search-box input {
+    font-size: 16px;
+  }
+  .telemetry-stats-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  /* GRIDS ON MOBILE */
   .fleet-grid, .bento-grid, .reviews-grid, .cities-grid {
     grid-template-columns: 1fr;
   }
@@ -2600,46 +2903,79 @@ input:checked + .slider-round:before {
   }
   .stats-grid {
     grid-template-columns: 1fr 1fr;
-  }
-  .hero-booking-card {
-    padding: 1.25rem;
-  }
-  .route-input-container {
-    grid-template-columns: 1fr;
     gap: 0.75rem;
   }
-  .route-swap-btn {
-    align-self: center;
-    margin: -4px auto;
-    transform: rotate(90deg);
+  .stat-glass-card {
+    padding: 1.15rem 0.85rem;
   }
-  .route-swap-btn:hover {
-    transform: scale(1.08) rotate(270deg);
+  .stat-number {
+    font-size: 1.85rem;
   }
-  .booking-tabs {
-    grid-template-columns: 1fr;
-    gap: 0.4rem;
+
+  /* CTA BANNER & FOOTER */
+  .cta-glass-banner {
+    padding: 2rem 1.25rem;
+    text-align: center;
   }
-  .booking-tab {
-    padding: 0.6rem 0.75rem;
+  .cta-content h2 {
+    font-size: 1.85rem;
   }
-  .booking-trust-strip {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  .card-header-badge {
-    display: none;
-  }
-  .radar-console-card {
-    padding: 1.25rem;
-  }
-  .radar-search-box {
+  .cta-actions-group {
     flex-direction: column;
+    width: 100%;
+  }
+  .cta-actions-group .btn {
+    width: 100%;
   }
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  .cta-glass-banner {
-    padding: 2rem 1.5rem;
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .footer-legal-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem;
+  }
+
+  /* FLOATING SPEED BAR ON MOBILE */
+  .floating-speed-bar {
+    bottom: 1rem;
+    right: 1rem;
+    gap: 0.5rem;
+  }
+  .floating-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
   }
 }
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  .brand-logo .logo-part-city, .brand-logo .logo-part-cargo {
+    font-size: 1.15rem;
+  }
+  .subline-text {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+  }
+  .quote-metrics-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .top-contacts {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
